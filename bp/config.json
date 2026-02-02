@@ -100,7 +100,7 @@
         "name": "google-secops-destination"
       },
       "spec": {
-        "type": "google_chronicle",
+        "type": "chronicle",
         "parameters": [
           { "name": "auth_type", "value": "auto" },
           { "name": "customer_id", "value": "00000000-0000-0000-0000-000000000000" },
