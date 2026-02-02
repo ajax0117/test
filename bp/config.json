@@ -47,7 +47,7 @@
       "kind": "Source",
       "metadata": { "name": "windows-event-source-1" },
       "spec": {
-        "type": "windows_event_log",
+        "type": "windowsevents_v2",
         "parameters": [
           { "name": "system_event_input", "value": true },
           { "name": "app_event_input", "value": true },
@@ -60,7 +60,7 @@
       "kind": "Source",
       "metadata": { "name": "windows-event-source-2" },
       "spec": {
-        "type": "windows_event_log",
+        "type": "windowsevents_v2",
         "parameters": [
           { "name": "system_event_input", "value": true },
           { "name": "app_event_input", "value": true },
@@ -73,7 +73,7 @@
       "kind": "Source",
       "metadata": { "name": "windows-event-source-3" },
       "spec": {
-        "type": "windows_event_log",
+        "type": "windowsevents_v2",
         "parameters": [
           { "name": "system_event_input", "value": true },
           { "name": "app_event_input", "value": true },
