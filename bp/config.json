@@ -1,0 +1,52 @@
+{
+  "apiVersion": "bindplane.com/v1",
+  "kind": "Configuration",
+  "metadata": {
+    "name": "default",
+    "labels": {
+      "platform": "linux"
+    }
+  },
+  "spec": {
+    "sources": [
+      {
+        "name": "syslog-10514",
+        "type": "syslog",
+        "parameters": [
+          { "name": "protocol", "value": "tcp" },
+          { "name": "listen_address", "value": "0.0.0.0" },
+          { "name": "listen_port", "value": 10514 }
+        ]
+      },
+      {
+        "name": "syslog-10515",
+        "type": "syslog",
+        "parameters": [
+          { "name": "protocol", "value": "tcp" },
+          { "name": "listen_address", "value": "0.0.0.0" },
+          { "name": "listen_port", "value": 10515 }
+        ]
+      },
+      {
+        "name": "syslog-10516",
+        "type": "syslog",
+        "parameters": [
+          { "name": "protocol", "value": "tcp" },
+          { "name": "listen_address", "value": "0.0.0.0" },
+          { "name": "listen_port", "value": 10516 }
+        ]
+      }
+    ],
+    "destinations": [
+      {
+        "name": "google-secops-dest",
+        "type": "chronicle",
+        "parameters": [
+          { "name": "customer_id", "value": "YOUR_CUSTOMER_ID" },
+          { "name": "log_type", "value": "SYSLOG" },
+          { "name": "credentials", "value": "YOUR_SERVICE_ACCOUNT_JSON_OR_KEY" }
+        ]
+      }
+    ]
+  }
+}
