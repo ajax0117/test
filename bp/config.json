@@ -3,9 +3,7 @@
     {
       "apiVersion": "bindplane.observiq.com/v1",
       "kind": "Source",
-      "metadata": {
-        "name": "syslog-source-1"
-      },
+      "metadata": { "name": "syslog-source-1" },
       "spec": {
         "type": "syslog",
         "parameters": [
@@ -19,9 +17,7 @@
     {
       "apiVersion": "bindplane.observiq.com/v1",
       "kind": "Source",
-      "metadata": {
-        "name": "syslog-source-2"
-      },
+      "metadata": { "name": "syslog-source-2" },
       "spec": {
         "type": "syslog",
         "parameters": [
@@ -35,9 +31,7 @@
     {
       "apiVersion": "bindplane.observiq.com/v1",
       "kind": "Source",
-      "metadata": {
-        "name": "syslog-source-3"
-      },
+      "metadata": { "name": "syslog-source-3" },
       "spec": {
         "type": "syslog",
         "parameters": [
@@ -51,9 +45,7 @@
     {
       "apiVersion": "bindplane.observiq.com/v1",
       "kind": "Source",
-      "metadata": {
-        "name": "windows-event-source-1"
-      },
+      "metadata": { "name": "windows-event-source-1" },
       "spec": {
         "type": "windows_event_log",
         "parameters": [
@@ -66,9 +58,7 @@
     {
       "apiVersion": "bindplane.observiq.com/v1",
       "kind": "Source",
-      "metadata": {
-        "name": "windows-event-source-2"
-      },
+      "metadata": { "name": "windows-event-source-2" },
       "spec": {
         "type": "windows_event_log",
         "parameters": [
@@ -81,9 +71,7 @@
     {
       "apiVersion": "bindplane.observiq.com/v1",
       "kind": "Source",
-      "metadata": {
-        "name": "windows-event-source-3"
-      },
+      "metadata": { "name": "windows-event-source-3" },
       "spec": {
         "type": "windows_event_log",
         "parameters": [
