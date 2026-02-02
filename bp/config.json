@@ -9,22 +9,10 @@
       "spec": {
         "type": "syslog",
         "parameters": [
-          {
-            "name": "protocol",
-            "value": "rfc3164"
-          },
-          {
-            "name": "listen_port",
-            "value": 5140
-          },
-          {
-            "name": "listen_ip",
-            "value": "0.0.0.0"
-          },
-          {
-            "name": "connection_type",
-            "value": "tcp"
-          }
+          { "name": "protocol", "value": "rfc3164" },
+          { "name": "listen_port", "value": 5140 },
+          { "name": "listen_ip", "value": "0.0.0.0" },
+          { "name": "connection_type", "value": "tcp" }
         ]
       }
     },
@@ -37,22 +25,10 @@
       "spec": {
         "type": "syslog",
         "parameters": [
-          {
-            "name": "protocol",
-            "value": "rfc3164"
-          },
-          {
-            "name": "listen_port",
-            "value": 5141
-          },
-          {
-            "name": "listen_ip",
-            "value": "0.0.0.0"
-          },
-          {
-            "name": "connection_type",
-            "value": "tcp"
-          }
+          { "name": "protocol", "value": "rfc3164" },
+          { "name": "listen_port", "value": 5141 },
+          { "name": "listen_ip", "value": "0.0.0.0" },
+          { "name": "connection_type", "value": "tcp" }
         ]
       }
     },
@@ -65,22 +41,71 @@
       "spec": {
         "type": "syslog",
         "parameters": [
-          {
-            "name": "protocol",
-            "value": "rfc3164"
-          },
-          {
-            "name": "listen_port",
-            "value": 5142
-          },
-          {
-            "name": "listen_ip",
-            "value": "0.0.0.0"
-          },
-          {
-            "name": "connection_type",
-            "value": "tcp"
-          }
+          { "name": "protocol", "value": "rfc3164" },
+          { "name": "listen_port", "value": 5142 },
+          { "name": "listen_ip", "value": "0.0.0.0" },
+          { "name": "connection_type", "value": "tcp" }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Source",
+      "metadata": {
+        "name": "windows-event-source-1"
+      },
+      "spec": {
+        "type": "windows_event_log",
+        "parameters": [
+          { "name": "system_event_input", "value": true },
+          { "name": "app_event_input", "value": true },
+          { "name": "security_event_input", "value": true }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Source",
+      "metadata": {
+        "name": "windows-event-source-2"
+      },
+      "spec": {
+        "type": "windows_event_log",
+        "parameters": [
+          { "name": "system_event_input", "value": true },
+          { "name": "app_event_input", "value": true },
+          { "name": "security_event_input", "value": true }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Source",
+      "metadata": {
+        "name": "windows-event-source-3"
+      },
+      "spec": {
+        "type": "windows_event_log",
+        "parameters": [
+          { "name": "system_event_input", "value": true },
+          { "name": "app_event_input", "value": true },
+          { "name": "security_event_input", "value": true }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Destination",
+      "metadata": {
+        "name": "google-secops-destination"
+      },
+      "spec": {
+        "type": "google_chronicle",
+        "parameters": [
+          { "name": "auth_type", "value": "auto" },
+          { "name": "customer_id", "value": "00000000-0000-0000-0000-000000000000" },
+          { "name": "project_id", "value": "00000000-0000-0000-0000-000000000000" },
+          { "name": "region", "value": "us" }
         ]
       }
     },
@@ -92,17 +117,31 @@
       },
       "spec": {
         "sources": [
-          {
-            "name": "syslog-source-1"
-          },
-          {
-            "name": "syslog-source-2"
-          },
-          {
-            "name": "syslog-source-3"
-          }
+          { "name": "syslog-source-1" },
+          { "name": "syslog-source-2" },
+          { "name": "syslog-source-3" }
         ],
-        "destinations": []
+        "destinations": [
+          { "name": "google-secops-destination" }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Configuration",
+      "metadata": {
+        "name": "windows-only"
+      },
+      "spec": {
+        "platform": "windows",
+        "sources": [
+          { "name": "windows-event-source-1" },
+          { "name": "windows-event-source-2" },
+          { "name": "windows-event-source-3" }
+        ],
+        "destinations": [
+          { "name": "google-secops-destination" }
+        ]
       }
     }
   ]
