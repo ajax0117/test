@@ -133,7 +133,6 @@
         "name": "windows-only"
       },
       "spec": {
-        "platform": "windows",
         "sources": [
           { "name": "windows-event-source-1" },
           { "name": "windows-event-source-2" },
