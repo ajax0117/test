@@ -1,52 +1,109 @@
 {
-  "apiVersion": "bindplane.com/v1",
-  "kind": "Configuration",
-  "metadata": {
-    "name": "default",
-    "labels": {
-      "platform": "linux"
+  "resources": [
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Source",
+      "metadata": {
+        "name": "syslog-source-1"
+      },
+      "spec": {
+        "type": "syslog",
+        "parameters": [
+          {
+            "name": "protocol",
+            "value": "rfc3164"
+          },
+          {
+            "name": "listen_port",
+            "value": 5140
+          },
+          {
+            "name": "listen_ip",
+            "value": "0.0.0.0"
+          },
+          {
+            "name": "connection_type",
+            "value": "tcp"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Source",
+      "metadata": {
+        "name": "syslog-source-2"
+      },
+      "spec": {
+        "type": "syslog",
+        "parameters": [
+          {
+            "name": "protocol",
+            "value": "rfc3164"
+          },
+          {
+            "name": "listen_port",
+            "value": 5141
+          },
+          {
+            "name": "listen_ip",
+            "value": "0.0.0.0"
+          },
+          {
+            "name": "connection_type",
+            "value": "tcp"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Source",
+      "metadata": {
+        "name": "syslog-source-3"
+      },
+      "spec": {
+        "type": "syslog",
+        "parameters": [
+          {
+            "name": "protocol",
+            "value": "rfc3164"
+          },
+          {
+            "name": "listen_port",
+            "value": 5142
+          },
+          {
+            "name": "listen_ip",
+            "value": "0.0.0.0"
+          },
+          {
+            "name": "connection_type",
+            "value": "tcp"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "bindplane.observiq.com/v1",
+      "kind": "Configuration",
+      "metadata": {
+        "name": "syslog-only"
+      },
+      "spec": {
+        "sources": [
+          {
+            "name": "syslog-source-1"
+          },
+          {
+            "name": "syslog-source-2"
+          },
+          {
+            "name": "syslog-source-3"
+          }
+        ],
+        "destinations": []
+      }
     }
-  },
-  "spec": {
-    "sources": [
-      {
-        "name": "syslog-10514",
-        "type": "syslog",
-        "parameters": [
-          { "name": "protocol", "value": "tcp" },
-          { "name": "listen_address", "value": "0.0.0.0" },
-          { "name": "listen_port", "value": 10514 }
-        ]
-      },
-      {
-        "name": "syslog-10515",
-        "type": "syslog",
-        "parameters": [
-          { "name": "protocol", "value": "tcp" },
-          { "name": "listen_address", "value": "0.0.0.0" },
-          { "name": "listen_port", "value": 10515 }
-        ]
-      },
-      {
-        "name": "syslog-10516",
-        "type": "syslog",
-        "parameters": [
-          { "name": "protocol", "value": "tcp" },
-          { "name": "listen_address", "value": "0.0.0.0" },
-          { "name": "listen_port", "value": 10516 }
-        ]
-      }
-    ],
-    "destinations": [
-      {
-        "name": "google-secops-dest",
-        "type": "chronicle",
-        "parameters": [
-          { "name": "customer_id", "value": "YOUR_CUSTOMER_ID" },
-          { "name": "log_type", "value": "SYSLOG" },
-          { "name": "credentials", "value": "YOUR_SERVICE_ACCOUNT_JSON_OR_KEY" }
-        ]
-      }
-    ]
-  }
+  ]
 }
